@@ -4,15 +4,27 @@ services:
   web:
     image: vipercloud/web:latest
     deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        windows: 120s
       labels:
         - traefik.port=5000
         - traefik.backend=vipercloud-web
         - traefik.frontend.rule=Host:www.viper.cloud,viper.cloud
         - traefik.backend.loadbalancer.sticky=true
     networks:
-      - services 
-  
+      - ingress 
+      - private
+
 networks:
-  services:
+  private:
+    driver: overlay
+  ingress:
     external:
-      name: core_services
+      name: core_ingress
