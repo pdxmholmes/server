@@ -3,7 +3,7 @@ version: '3'
 services:
   proxy:
     image: traefik
-    command: --web --docker -docker.watch --docker.domain=holmescode.com --logLevel=DEBUG
+    command: --web --docker --docker.watch --docker.domain=holmescode.com --logLevel=DEBUG
     networks:
       - services
       - web
