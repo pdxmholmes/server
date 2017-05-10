@@ -8,7 +8,10 @@ services:
         - traefik.port=5000
         - traefik.backend=holmescode-web
         - traefik.frontend.rule=Host:www.holmescode.com,holmescode.com
+        - traefik.docker.network=core_services
         - traefik.backend.loadbalancer.sticky=true
+    expose:
+      - 5000
     networks:
       - services 
   
