@@ -10,9 +10,9 @@ services:
         - traefik.frontend.rule=Host:www.holmescode.com,holmescode.com
         - traefik.backend.loadbalancer.sticky=true
     networks:
-      - internal 
+      - services 
   
 networks:
-  internal:
+  services:
     external:
-      name: core_private
+      name: core_services
