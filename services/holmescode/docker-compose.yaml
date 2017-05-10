@@ -5,11 +5,12 @@ services:
     image: mattholmes/website:latest
     deploy:
       labels:
+        - traefik.port=5000
         - traefik.backend=holmescode-web
         - traefik.frontend.rule=Host:www.holmescode.com,holmescode.com
         - traefik.backend.loadbalancer.sticky=true
     networks:
-      - internal
+      - internal 
   
 networks:
   internal:
