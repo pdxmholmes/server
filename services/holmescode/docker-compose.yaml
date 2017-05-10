@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    image: mattholmes/website:latest
+    restart: unless-stopped
+    labels:
+      - traefik.backend=holmescode-web
+      - traefik.frontend.rule=Host:www.holmescode.com,holmescode.com
+    networks:
+      - internal
+  
+networks:
+  internal:
+    external:
+      name: core_private
