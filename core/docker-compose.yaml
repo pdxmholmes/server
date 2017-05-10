@@ -2,8 +2,8 @@ version: '3'
 
 services:
   proxy:
-    image: traefik
-    command: --web --docker --docker.watch --docker.domain=holmescode.com --logLevel=DEBUG
+    image: traefik:1.2
+    command: --web --docker --docker.swarmmode --docker.watch --docker.domain=holmescode.com --logLevel=DEBUG
     networks:
       - services
       - web
@@ -20,6 +20,6 @@ services:
 
 networks:
   services:
-    driver: bridge
+    driver: overlay
   web:
-    driver: bridge
+    driver: overlay

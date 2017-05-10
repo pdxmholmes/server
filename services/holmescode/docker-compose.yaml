@@ -3,10 +3,12 @@ version: '3'
 services:
   web:
     image: mattholmes/website:latest
-    labels:
-      - traefik.backend=holmescode-web
-      - traefik.frontend.rule=Host:www.holmescode.com,holmescode.com
-      - traefik.backend.loadbalancer.sticky=true
+    deploy:
+      labels:
+        - traefik.port=5000
+        - traefik.backend=holmescode-web
+        - traefik.frontend.rule=Host:www.holmescode.com,holmescode.com
+        - traefik.backend.loadbalancer.sticky=true
     networks:
       - services 
   
