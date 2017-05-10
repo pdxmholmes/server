@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  web:
+    image: vipercloud/web:latest
+    deploy:
+      labels:
+        - traefik.port=5000
+        - traefik.backend=vipercloud-web
+        - traefik.frontend.rule=Host:www.viper.cloud,viper.cloud
+        - traefik.backend.loadbalancer.sticky=true
+    networks:
+      - services 
+  
+networks:
+  services:
+    external:
+      name: core_services
