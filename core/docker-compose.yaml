@@ -4,7 +4,6 @@ services:
   proxy:
     image: traefik
     command: --web --docker --docker.domain=holmescode.com --logLevel=DEBUG
-    restart: unless-stopped
     networks:
       - public
       - private

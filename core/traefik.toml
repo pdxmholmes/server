@@ -16,4 +16,4 @@ defaultEntryPoints = ["http", "https"]
       keyFile = "/var/ssl/viper.cloud.key"
 
 [docker]
-  swarmmode = true
+swarmmode = true
