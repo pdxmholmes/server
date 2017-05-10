@@ -12,7 +12,7 @@ services:
         condition: on-failure
         delay: 5s
         max_attempts: 3
-        window: 120s        
+        window: 120s
       labels:
         - traefik.port=5000
         - traefik.backend=holmescode-web
