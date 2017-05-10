@@ -14,6 +14,3 @@ defaultEntryPoints = ["http", "https"]
       [[entryPoints.https.tls.certificates]]
       certFile = "/var/ssl/viper.cloud.crt"
       keyFile = "/var/ssl/viper.cloud.key"
-
-[docker]
-swarmmode = true
