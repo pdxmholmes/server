@@ -21,6 +21,8 @@ services:
 
 networks:
   public:
-    driver: overlay
+    driver: bridge
+    scope: swarm
   private:
     driver: overlay
+    scope: swarm
