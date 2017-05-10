@@ -13,7 +13,7 @@ services:
         condition: on-failure
         delay: 5s
         max_attempts: 3
-        windows: 120s
+        window: 120s
       placement:
         constraints:
           - node.role == manager
